@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Auditoría de Sesgos - Banco Turing</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- D3 v7 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Auditoría de Sesgos - Banco Turing</h1>
+        <p>
+            Dashboard para analizar posibles sesgos del modelo de scoring por comuna,
+            nacionalidad, sexo y edad.
+        </p>
+        <div id="filtros">
+            <span id="filtro-actual">Filtro: Ninguno</span>
+            <button id="btn-clear">Limpiar filtros</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Arriba a todo el ancho -->
+        <section class="chart-container" id="sec-comuna">
+            <h2>1. Tasa de rechazo por comuna</h2>
+            <p class="chart-desc">
+                Distribución de la tasa de rechazo (<code>decision_legacy</code>) por comuna.
+                Haz clic en una barra para filtrar las otras vistas.
+            </p>
+            <div id="chart-comuna"></div>
+        </section>
+
+        <!-- Abajo, lado izquierdo -->
+        <section class="chart-container" id="sec-scatter">
+            <h2>2. Ingresos vs Score de riesgo</h2>
+            <p class="chart-desc">
+                Correlación entre <code>ingresos_mensuales</code> y
+                <code>score_riesgo</code>, coloreado por decisión del modelo.
+            </p>
+            <div id="chart-scatter"></div>
+        </section>
+
+        <!-- Abajo, lado derecho -->
+        <section class="chart-container" id="sec-edad">
+            <h2>3. Tasa de rechazo por grupo de edad</h2>
+            <p class="chart-desc">
+                Distribución de la tasa de rechazo por rangos de edad.
+            </p>
+            <div id="chart-edad"></div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

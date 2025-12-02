@@ -1,0 +1,172 @@
+/* ===== GENERAL LAYOUT ===== */
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+/* ===== HEADER (COMPACTO, PERO LEGIBLE) ===== */
+
+header {
+    padding: 10px 20px;
+    background: #020617;
+    border-bottom: 1px solid #1f2937;
+}
+
+header h1 {
+    margin: 0 0 2px;
+    font-size: 1.5rem;
+    /* un poco más grande */
+}
+
+header p {
+    margin: 0 0 4px;
+    font-size: 0.86rem;
+    color: #9ca3af;
+}
+
+#filtros {
+    margin-top: 4px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+}
+
+#btn-clear {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #4b5563;
+    background: #111827;
+    color: #e5e7eb;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+#btn-clear:hover {
+    background: #1f2937;
+}
+
+/* ===== MAIN DASHBOARD LAYOUT ===== */
+
+main {
+    padding: 14px 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr;
+    grid-template-areas:
+        "comuna comuna"
+        "scatter edad";
+    gap: 14px;
+}
+
+/* Asignar secciones a la grilla */
+
+#sec-comuna {
+    grid-area: comuna;
+}
+
+#sec-scatter {
+    grid-area: scatter;
+}
+
+#sec-edad {
+    grid-area: edad;
+}
+
+/* ===== TARJETAS DE GRÁFICOS ===== */
+
+.chart-container {
+    background: #020617;
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid #1f2937;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.7);
+}
+
+.chart-container h2 {
+    margin-top: 0;
+    margin-bottom: 3px;
+    font-size: 1.2rem;
+    /* título de gráfico más grande */
+}
+
+.chart-desc {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 0.83rem;
+    /* descripción un poco más grande */
+    color: #9ca3af;
+}
+
+/* ===== SVG / ESPACIO DE GRÁFICO ===== */
+
+svg {
+    width: 100%;
+    height: 240px;
+    /* subimos un poquito la altura para ganar legibilidad */
+}
+
+/* ===== ESTILO DE EJES Y MARCAS ===== */
+
+.axis text {
+    fill: #d1d5db;
+    font-size: 0.78rem;
+    /* más grande para que las categorías se lean bien */
+}
+
+.axis path,
+.axis line {
+    stroke: #4b5563;
+}
+
+/* ===== BARRAS Y PUNTOS ===== */
+
+.bar {
+    cursor: pointer;
+}
+
+.bar.selected {
+    stroke: #fbbf24;
+    stroke-width: 2px;
+}
+
+.dot {
+    opacity: 0.75;
+}
+
+.dot.hidden {
+    opacity: 0.08;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    padding: 8px 20px 10px;
+    border-top: 1px solid #1f2937;
+    text-align: center;
+    font-size: 0.78rem;
+    color: #6b7280;
+}
+
+/* ===== RESPONSIVE (CELU/TABLET) ===== */
+
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "comuna"
+            "scatter"
+            "edad";
+    }
+
+    svg {
+        height: 260px;
+        /* un poco más alto en pantallas chicas */
+    }
+}
